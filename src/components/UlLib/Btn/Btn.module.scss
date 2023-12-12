@@ -1,0 +1,39 @@
+.btn {
+  height: 100%;
+  // width: 100%;
+
+  background-color: #f6a902;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 200%;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.orange {
+  background-color: #f6a902;
+  &.orange.active {
+    background-color: rgb(225, 225, 225);
+    color: rgb(246, 169, 2);
+  }
+}
+.grey {
+  background-color: #b0b0b0;
+  color: #000000;
+}
+.darkgrey {
+  background-color: #3c3c3c;
+}
+.popka {
+  background-color: red;
+}
+
+.isClicked {
+  filter: brightness(1.4) !important;
+}
