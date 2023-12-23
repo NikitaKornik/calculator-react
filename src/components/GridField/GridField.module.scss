@@ -13,6 +13,12 @@
 .answer {
   grid-column-start: 1;
   grid-column-end: 5;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  color: white;
+  font: 500;
+  font-size: 400%;
   // border: greenyellow 1px solid;
 }
 
