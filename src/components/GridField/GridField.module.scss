@@ -1,11 +1,11 @@
 .grid {
   margin: 10px;
-  height: 95vh;
+  height: 85vh;
 
   display: grid;
-  grid-gap: 5%;
+  grid-gap: 15px;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 20%;
+  grid-template-rows: 30%;
 
   // border: #b0b0b0 1px solid;
 }

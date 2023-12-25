@@ -5,6 +5,7 @@ export function Btn({
   name, // имя (1, 2 ... *)
   color, // объект с данными кнопки (цвет, значение)
   globalActive, // активность кнопки (/ * + - =)
+  setGlobalActive,
   //вся информация о первом числе, втором числе, операторе, заключения
   firstDigital,
   setFirstDigital,
@@ -15,9 +16,21 @@ export function Btn({
   finish,
   setFinish,
   setDisplay,
+  id,
 }) {
   const [active, setActive] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+
+  if (id == "AC") {
+    if (sign == "" && firstDigital == "") {
+      name = "AC";
+    } else if (sign != "" && secondDigital == "") {
+      name = "AC";
+    } else {
+      name = "C";
+    }
+  }
+
   function onclick() {
     setIsClicked(true);
     setTimeout(() => {
@@ -25,13 +38,26 @@ export function Btn({
     }, 100);
 
     if (color.origin == "tools") {
-      if (name == "C") {
+      if (name == "AC") {
         setFirstDigital("");
         setSecondDigital("");
         setSign("");
         setFinish(false);
         setDisplay("0");
-        console.log("clear");
+        setGlobalActive("");
+        console.log("All_clear");
+      }
+      if (name == "C") {
+        if (sign == "") {
+          setFirstDigital("");
+        } else {
+          setSecondDigital("");
+        }
+        setFinish(false);
+        setDisplay("0");
+        setGlobalActive(sign);
+        name = "AC";
+        console.log("Clear");
       }
       if (name == "+/-") {
         if (sign != "") {
@@ -49,13 +75,26 @@ export function Btn({
       }
     }
     if (color.origin == "digital") {
+      setGlobalActive("");
       if (sign == "") {
-        setFirstDigital(firstDigital + name);
+        if (firstDigital == "" && name == "0") {
+        } else {
+          setFirstDigital(firstDigital + name);
+        }
       } else if (sign != "") {
-        setSecondDigital(secondDigital + name);
+        if (secondDigital == "" && name == "0") {
+        } else {
+          setSecondDigital(secondDigital + name);
+        }
       }
     }
     if (color.origin == "sign") {
+      if (name != "=") {
+        setGlobalActive(name);
+      } else {
+        setGlobalActive("");
+      }
+
       if (sign == "" && firstDigital != "" && name != "=") {
         setSign(name);
       }
