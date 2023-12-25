@@ -18,7 +18,6 @@ export function Btn({
   setDisplay,
   id,
 }) {
-  const [active, setActive] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
   if (id == "AC") {
