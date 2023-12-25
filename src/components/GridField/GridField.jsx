@@ -131,7 +131,7 @@ export function GridField(props) {
   }
 
   const renderBtns = allBtns.map((e, index) => (
-    <div className={`${s.cell} ${s.cell_}`}>
+    <div className={`${s.cell} ${e.name == 0 ? s.cell_0 : ""}`}>
       <Btn
         color={e.color}
         name={e.name}
@@ -144,6 +144,7 @@ export function GridField(props) {
         finish={finish}
         setFinish={setFinish}
         setDisplay={setDisplay}
+        globalActive={isActive}
       />
     </div>
   ));

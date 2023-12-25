@@ -16,10 +16,14 @@ export function Btn({
   setFinish,
   setDisplay,
 }) {
-  // const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
-  // const [test, setTest] = useState("");
   function onclick() {
+    setIsClicked(true);
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 100);
+
     if (color.origin == "tools") {
       if (name == "C") {
         setFirstDigital("");
@@ -81,11 +85,6 @@ export function Btn({
     `firstDigital: ${firstDigital} sign: ${sign}, secondDigital: ${secondDigital} setFinish: ${finish}`
   );
   //анимация
-  // setIsClicked(true);
-  // setTimeout(() => {
-  //   setIsClicked(false);
-  // }, 100);
-  // console.log(color.className);
   return (
     <div
       className={`${s.btn} ${color.className} ${
