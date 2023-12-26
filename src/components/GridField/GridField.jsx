@@ -148,6 +148,9 @@ export function GridField(props) {
       setSign("");
     }
   }
+  if (firstDigital == Infinity) {
+    setFirstDigital("Серьезно?");
+  }
   const renderBtns = allBtns.map((e, index) => (
     <div className={`${s.cell} ${e.name == 0 ? s.cell_0 : ""}`}>
       <Btn
